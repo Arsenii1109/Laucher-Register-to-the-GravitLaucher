@@ -8,5 +8,6 @@ connection=mysql.connector.connect(
 )
 cursor=connection.cursor()
 
+guild_id="YOUR GUILD ID"
 token="YOUR TOKEN"
 prefix_bot="!"
