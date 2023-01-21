@@ -1,6 +1,6 @@
 import disnake, hashlib, os
 from typing import Optional
-from config import cursor, connection, token_laucherregister, prefix_bot
+from config import cursor, connection, token_laucherregister, prefix_bot, guild_id
 from disnake.ext import commands
 from disnake import Intents, TextInputStyle, ModalInteraction
 
@@ -67,7 +67,7 @@ async def on_modal_submit(inter: ModalInteraction):
                 await inter.response.send_message(embed=disnake.Embed(title="Аккаунт", description="Вы успешно зарегистрированы", colour=disnake.Colour.purple()),ephemeral=True)
             else:
                 cursor.execute(f"SELECT id FROM laucher WHERE username = '{value1}'")
-                guild=bot.get_guild(1060899660065153074)
+                guild=bot.get_guild(guild_id)
                 member=guild.get_member(cursor.fetchone()[0])
                 await inter.response.send_message(embed=disnake.Embed(title="Данный акаунт уже зарегистрирован", description=f"Вот аккаунт в дискорде {member.id} зарегистрированый на данный никнейм **{value1}**!", colour=disnake.Colour.purple()),ephemeral=True)
         else:
