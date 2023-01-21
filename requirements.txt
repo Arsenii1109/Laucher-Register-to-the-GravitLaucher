@@ -1,0 +1,5 @@
+disnake
+hashlib
+os
+typing
+mysql-connector-python
